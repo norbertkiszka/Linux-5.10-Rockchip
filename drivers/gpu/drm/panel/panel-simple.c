@@ -826,6 +826,8 @@ static const struct backlight_ops dcs_bl_ops = {
 	.get_brightness = dcs_bl_get_brightness,
 };
 
+struct drm_panel *panel_last_probed = 0; // Norbert: temporary workaround for dw-mipi-dsi-orangerigol.c
+
 static int panel_simple_probe(struct device *dev, const struct panel_desc *desc)
 {
 	struct panel_simple *panel;
@@ -971,6 +973,8 @@ static int panel_simple_probe(struct device *dev, const struct panel_desc *desc)
 	drm_panel_add(&panel->base);
 
 	dev_set_drvdata(dev, panel);
+	
+	panel_last_probed = &panel->base;
 
 	return 0;
 
