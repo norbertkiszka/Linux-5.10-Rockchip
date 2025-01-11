@@ -3,17 +3,20 @@
 menuconfig RIGOL_DRIVERS
 	bool "Device drivers for Rigol support"
 	default y
+	select GPIOLIB
 	help
 		Probably all of them was made by reverse engineering...
 
 if RIGOL_DRIVERS
 
 config RIGOL_HDCODE_GPIO
-	tristate "Driver that reads 'hdcode' pullup resistors connected to gpio to calculate Hardware Number"
+	tristate "hdcode_gpio"
 	default m
 	depends on m
 	depends on GPIOLIB
 	help
+		Driver that reads 'hdcode' pullup resistors connected to gpio to calculate Hardware Number.
+		Based on a reverse engineering of Rigol module with the same name.
 		It creates char device /dev/hdcode_gpio from where You can read one byte HW (0-255).
 		Original Rigol hdcode_gpio is not writeable, but this one is, so You can do this to change HW:
 		$ printf '\x8' > /dev/hdcode_gpio
