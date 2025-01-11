@@ -1970,3 +1970,5 @@ int fts_fwupg_exit(struct fts_ts_data *ts_data)
 }
 
 #endif  /* #if FTS_AUTO_UPGRADE_EN */
+
+MODULE_IMPORT_NS(VFS_internal_I_am_really_a_filesystem_and_am_NOT_a_driver);
