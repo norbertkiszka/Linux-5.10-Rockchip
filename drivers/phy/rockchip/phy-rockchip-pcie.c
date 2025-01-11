@@ -371,9 +371,15 @@ static int rockchip_pcie_phy_probe(struct platform_device *pdev)
 
 	grf = syscon_node_to_regmap(dev->parent->of_node);
 	if (IS_ERR(grf)) {
-		dev_err(dev, "Cannot find GRF syscon\n");
-		return PTR_ERR(grf);
+		dev_info(dev, "Cannot find GRF syscon\n");
+		
+		grf = syscon_regmap_lookup_by_phandle(dev->of_node, "rockchip,grf");
+		if (IS_ERR(grf)) {
+			dev_err(dev, "Missing rockchip,grf property\n");
+			return PTR_ERR(grf);
+		}
 	}
+	
 
 	rk_phy = devm_kzalloc(dev, sizeof(*rk_phy), GFP_KERNEL);
 	if (!rk_phy)
