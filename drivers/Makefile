@@ -196,3 +196,4 @@ obj-$(CONFIG_ROCKCHIP_RKNPU)	+= rknpu/
 obj-$(CONFIG_EBF_MODULE)	+= ebf_module/
 obj-$(CONFIG_QUECTTEL_MHI_BUS)	+= pcie_mhi/
 obj-m				+= xilinx/
+obj-$(CONFIG_RIGOL_DRIVERS)	+= rigol/

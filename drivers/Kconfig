@@ -250,4 +250,6 @@ source "drivers/pcie_mhi/Kconfig"
 
 source "drivers/xilinx/Kconfig"
 
+source "drivers/rigol/Kconfig"
+
 endmenu

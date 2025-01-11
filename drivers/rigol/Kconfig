@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: GPL-2.0
+
+menuconfig RIGOL_DRIVERS
+	bool "Device drivers for Rigol support"
+	default y
+	help
+		Probably all of them was made by reverse engineering...
+
+if RIGOL_DRIVERS
+
+config RIGOL_HDCODE_GPIO
+	tristate "Driver that reads 'hdcode' pullup resistors connected to gpio to calculate Hardware Number"
+	default m
+	depends on m
+	depends on GPIOLIB
+	help
+		It creates char device /dev/hdcode_gpio from where You can read one byte HW (0-255).
+		Original Rigol hdcode_gpio is not writeable, but this one is, so You can do this to change HW:
+		$ printf '\x8' > /dev/hdcode_gpio
+		Every change is noted in kernel messages.
+	
+endif # RIGOL_DRIVERS
