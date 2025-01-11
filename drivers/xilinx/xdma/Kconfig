@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config XILINX_XDMA
+    tristate "Xilinx XDMA Reference Driver"
+	depends on m
+
+choice
+    prompt "Select version of Xilinx XDMA Reference Driver"
+    depends on XILINX_XDMA
+    default XILINX_XDMA_2019_2_51
+
+    config XILINX_XDMA_2019_2_51
+         bool "2019.2.51"
+
+    config XILINX_XDMA_2020_1_06
+         bool "2020.1.06"
+
+endchoice
+
