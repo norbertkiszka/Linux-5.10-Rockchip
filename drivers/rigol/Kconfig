@@ -29,11 +29,21 @@ config RIGOL_FG_M2C_GPIO
 	depends on GPIOLIB
 	help
 		Driver that handles one gpio to turn on and off AFG.
+		Based on a reverse engineering of Rigol module with the same name.
 		
 		To turn on:
 		$ printf '\x1' > /dev/fg_m2c_gpio
 		
 		To turn off:
 		$ printf '\x0' > /dev/fg_m2c_gpio
+
+config RIGOL_SPI2PLL_LXM2582_GPIO
+	tristate "spi2pll_lxm2582_gpio"
+	default m
+	depends on m
+	depends on GPIOLIB
+	help
+		Low level driver for PLL IC LXM2582
+		Based on a reverse engineering of Rigol module with the same name.
 
 endif # RIGOL_DRIVERS
