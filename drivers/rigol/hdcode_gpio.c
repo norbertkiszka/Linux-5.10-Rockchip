@@ -190,7 +190,7 @@ static int __init gpio_hdcode_init(void)
 	if(val)
 		data = data | 8;
 	
-	printk("hdcode_gpio loaded successfully. HW: %u\n", data);
+	printk(KERN_INFO "hdcode_gpio loaded successfully. HW: %u\n", data);
 
 	return 0;
 
