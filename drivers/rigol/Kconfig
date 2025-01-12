@@ -21,5 +21,19 @@ config RIGOL_HDCODE_GPIO
 		Original Rigol hdcode_gpio is not writeable, but this one is, so You can do this to change HW:
 		$ printf '\x8' > /dev/hdcode_gpio
 		Every change is noted in kernel messages.
-	
+
+config RIGOL_FG_M2C_GPIO
+	tristate "fg_m2c_gpio"
+	default m
+	depends on m
+	depends on GPIOLIB
+	help
+		Driver that handles one gpio to turn on and off AFG.
+		
+		To turn on:
+		$ printf '\x1' > /dev/fg_m2c_gpio
+		
+		To turn off:
+		$ printf '\x0' > /dev/fg_m2c_gpio
+
 endif # RIGOL_DRIVERS
