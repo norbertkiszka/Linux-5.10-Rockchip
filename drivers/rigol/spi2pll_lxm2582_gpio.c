@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * spi2pll_lxm2582_gpio - Low level LXM2582 SPI driver
+ *
+ * Copyright (c) 2024 Norbert Kiszka <linux@elektrykplakal.pl>
+ */
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/cdev.h>

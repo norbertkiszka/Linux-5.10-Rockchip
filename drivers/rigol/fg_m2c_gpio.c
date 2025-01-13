@@ -1,3 +1,9 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+ * fg_m2c_gpio - Turn on/off AFG generator
+ *
+ * Copyright (c) 2024 Norbert Kiszka <linux@elektrykplakal.pl>
+ */
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/cdev.h>
